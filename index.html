@@ -75,6 +75,24 @@ h2{font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;letter-spacing:.06em;margi
   @keyframes fadeUp{from{opacity:0;transform:translateY(46px)}to{opacity:1;transform:none}}
 }
 
+/* works: pinned horizontal gallery */
+.works{position:relative;background:var(--bg2);border-top:1px solid rgba(57,210,255,.1)}
+.works .head{padding:90px 6vw 30px;max-width:1200px;margin:0 auto}
+.hwrap{overflow:hidden}
+.htrack{display:flex;gap:26px;padding:20px 6vw 90px;width:max-content;align-items:stretch}
+.shot{position:relative;width:min(72vw,720px);flex:none;border-radius:6px;overflow:hidden;border:1px solid rgba(143,161,173,.18)}
+.shot img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92)}
+.shot .cap{position:absolute;left:0;right:0;bottom:0;padding:40px 22px 16px;background:linear-gradient(180deg,transparent,rgba(7,9,11,.9));display:flex;justify-content:space-between;align-items:baseline}
+.shot .cap b{letter-spacing:.15em;font-size:1rem}
+.shot .cap span{font-family:var(--mono);font-size:.72rem;letter-spacing:.25em;color:var(--cyan)}
+.shot::after{content:"";position:absolute;inset:0;border:1px solid rgba(57,210,255,0);transition:.3s;pointer-events:none}
+.shot:hover::after{border-color:var(--cyan-dim)}
+
+/* giant scrub text */
+.giant{overflow:hidden;padding:70px 0;border-top:1px solid rgba(57,210,255,.1)}
+.giant .line{white-space:nowrap;font-weight:900;font-size:clamp(3rem,9vw,7rem);letter-spacing:.06em;line-height:1.1;color:transparent;-webkit-text-stroke:1px rgba(143,161,173,.5)}
+.giant .line b{color:var(--cyan);-webkit-text-stroke:0;text-shadow:0 0 40px rgba(57,210,255,.35)}
+
 /* footer */
 footer{border-top:1px solid rgba(57,210,255,.12);padding:56px 6vw;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center;background:var(--bg2)}
 footer .logo{font-size:.95rem}
@@ -118,12 +136,29 @@ footer .fine{color:var(--mut);font-size:.82rem;letter-spacing:.1em}
   <div class="sec-label">SERVICES ── 我們做什麼</div>
   <h2>從攝影機到觀眾眼前，一條龍的現場影像</h2>
   <div class="cards">
-    <div class="card reveal"><div class="num">01 / EFP</div><h3>多機轉播</h3><p>多機位 EFP 系統與導播台現場切換，演出、賽事、典禮的完整轉播方案。</p></div>
-    <div class="card reveal"><div class="num">02 / LIVE</div><h3>現場直播</h3><p>活動現場到各大平台的穩定直播鏈路，訊號備援與現場監看一次到位。</p></div>
-    <div class="card reveal"><div class="num">03 / CABLE CAM</div><h3>飛人攝影</h3><p>高空索道攝影系統，劇場與大型活動的空中運鏡視角。</p></div>
-    <div class="card reveal"><div class="num">04 / RENTAL</div><h3>設備租借</h3><p>攝影機、導播台、無線圖傳等專業器材租借，附技術支援。</p></div>
+    <div class="card"><div class="num">01 / EFP</div><h3>多機轉播</h3><p>多機位 EFP 系統與導播台現場切換，演出、賽事、典禮的完整轉播方案。</p></div>
+    <div class="card"><div class="num">02 / LIVE</div><h3>現場直播</h3><p>活動現場到各大平台的穩定直播鏈路，訊號備援與現場監看一次到位。</p></div>
+    <div class="card"><div class="num">03 / CABLE CAM</div><h3>飛人攝影</h3><p>高空索道攝影系統，劇場與大型活動的空中運鏡視角。</p></div>
+    <div class="card"><div class="num">04 / RENTAL</div><h3>設備租借</h3><p>攝影機、導播台、無線圖傳等專業器材租借，附技術支援。</p></div>
   </div>
 </section>
+
+<section class="works" id="works">
+  <div class="head">
+    <div class="sec-label">ON SITE ── 現場實績</div>
+    <h2>往下捲，走一趟我們的轉播現場</h2>
+  </div>
+  <div class="hwrap">
+    <div class="htrack" id="htrack">
+      <div class="shot"><img src="assets/hero-02.jpg" alt="導播台 multiview 監看"><div class="cap"><b>導播作業</b><span>SWITCHER / MULTIVIEW</span></div></div>
+      <div class="shot"><img src="assets/hero-03.jpg" alt="多機攝影機對舞台"><div class="cap"><b>多機 EFP</b><span>CAM 01-04</span></div></div>
+      <div class="shot"><img src="assets/hero-04.jpg" alt="好點子品牌攝影高台"><div class="cap"><b>現場架設</b><span>GIDSHOW CREW</span></div></div>
+      <div class="shot"><img src="assets/hero-05.jpg" alt="Sony 專業攝影機"><div class="cap"><b>專業機組</b><span>BROADCAST RIG</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="giant"><div class="line" id="giantline">MULTI-CAM <b>×</b> LIVE STREAMING <b>×</b> CABLE CAM <b>×</b> SWITCHING <b>×</b> MULTI-CAM <b>×</b> LIVE STREAMING <b>×</b> CABLE CAM</div></div>
 
 <footer>
   <div class="logo">GID<b>SHOW</b>｜好點子藝術娛樂整合行銷</div>
@@ -132,6 +167,8 @@ footer .fine{color:var(--mut);font-size:.82rem;letter-spacing:.1em}
 
 <div class="note-badge">STYLE TILE v1</div>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script>
 // 跑動的 timecode（29.97fps 風格）
 const tc = document.getElementById('tc');
@@ -142,6 +179,40 @@ setInterval(() => {
   const p = n => String(n).padStart(2, '0');
   tc.textContent = `TC ${p(h)}:${p(m)}:${p(s)}:${p(fr)}`;
 }, 33);
+
+// GSAP 捲動動畫（尊重 reduced-motion）
+if (window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  gsap.registerPlugin(ScrollTrigger);
+
+  // hero 視差：背景慢速上移、標題淡出
+  gsap.to('.hero .bgimg', {yPercent: 14, ease: 'none',
+    scrollTrigger: {trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true}});
+  gsap.to('.hero-content', {yPercent: -18, autoAlpha: 0, ease: 'none',
+    scrollTrigger: {trigger: '.hero', start: '40% top', end: 'bottom top', scrub: true}});
+
+  // 服務卡片：左右交錯滑入
+  gsap.utils.toArray('.cards .card').forEach((card, i) => {
+    gsap.from(card, {x: i % 2 ? 90 : -90, y: 40, autoAlpha: 0, duration: .9, ease: 'power3.out',
+      scrollTrigger: {trigger: card, start: 'top 88%'}});
+  });
+
+  // 作品牆：區塊釘住、照片軌道跟捲動橫移
+  const track = document.getElementById('htrack');
+  const dist = () => track.scrollWidth - document.documentElement.clientWidth;
+  gsap.to(track, {x: () => -dist(), ease: 'none',
+    scrollTrigger: {trigger: '.works', start: 'top top', end: () => '+=' + dist(),
+      pin: true, scrub: 1, invalidateOnRefresh: true, anticipatePin: 1}});
+
+  // 巨型文字：反向橫移
+  gsap.to('#giantline', {xPercent: -30, ease: 'none',
+    scrollTrigger: {trigger: '.giant', start: 'top bottom', end: 'bottom top', scrub: true}});
+
+  // 區塊標題：底部進場上滑
+  gsap.utils.toArray('h2, .sec-label').forEach(el => {
+    gsap.from(el, {y: 34, autoAlpha: 0, duration: .8, ease: 'power2.out',
+      scrollTrigger: {trigger: el, start: 'top 92%'}});
+  });
+}
 </script>
 </body>
 </html>
